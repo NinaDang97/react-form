@@ -1,0 +1,233 @@
+.App-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #222;
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav {
+  width: 40%;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+nav li{
+  cursor: pointer;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+nav li:hover {
+  padding-bottom: 10px;
+  border-bottom: 3px solid white;
+  animation-name: menu-item;
+  animation-duration: 0.1s;
+}
+
+@keyframes menu-item {
+  0% {
+    padding-bottom: 2px;
+  }
+  50% {
+    padding-bottom: 5px;
+  }
+  100% {
+    padding-bottom: 10px;
+  }
+}
+
+form {
+  width: 60%;
+  margin: 20vh auto;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  background-color: #222;
+  padding: 20px;
+  color: white;
+  position: fixed;
+  bottom: 0;
+}
+
+body{
+  background: #454E57;    
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header{
+  text-align: center;
+}
+
+p, label{
+  color: rgb(206, 201, 201);
+}
+
+h1, h3{
+  color: white;
+}
+
+h3{
+  padding: 15px 0;
+  margin-bottom: 50px;
+  border-bottom: #01B5F4 3px solid;
+}
+
+input{
+  color: white;
+  border: none;
+  border-bottom: 1px solid rgb(169, 170, 172);
+  background: transparent;
+  margin: 15px 0;
+}
+
+textarea.input{
+  color: white;    
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  border: none;
+  background: transparent;
+  background-image: linear-gradient(transparent, transparent 39px, rgb(169, 170, 172) 39px, rgb(169, 170, 172) 40px);
+  background-size: 100% 40px;
+  line-height: 40px;
+}
+
+::-webkit-input-placeholder{
+  color: rgb(181, 184, 187);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+}
+
+input:focus, textarea:focus{
+  outline: none;
+  color: white;
+}
+
+/* Personal Infor */
+.info{
+  margin-bottom: 50px;
+}
+
+/* FLEX STARTS NOW.... */
+  /* INFO-COL-01 */
+.personal-info .info-col-01 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.personal-info .info-col-01 .left{
+  width: 70%;    
+}
+
+.personal-info .info-col-01 .right{
+  width: 25%;
+}
+
+.personal-info .info-col-01 input{
+  width: 100%;
+}
+
+  /* INFO-COL-02 */
+.personal-info .info-col-02 .top input{
+  width: 100%;
+}
+
+.personal-info .info-col-02 .bottom-inline{
+  display: flex;
+  justify-content: space-between;
+}
+
+.personal-info .info-col-02 .bottom-inline input{
+  width: 23%;
+}
+
+/* SKILL LOCATION */
+.skill-location .top{
+ display: flex;
+ justify-content: space-between;
+}
+
+.skill-location .top input[type=radio]{
+  display: none;
+}
+
+.skill-location .top label{
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px 0;
+  width: 23%;
+  border: 2px solid rgb(206, 201, 201);
+}
+
+.skill-location .top input[type=radio]:checked + label{
+  background: #01B5F4;
+  border-color: rgba(1, 179, 244, 0.39);
+}
+
+.skill-location .bottom{
+  display: flex;
+  justify-content: space-between;
+}
+
+.skill-location .bottom .paragraph-blur{
+  font-size: 0.75em;
+  color: rgb(169, 170, 172);
+}
+
+.skill-location .bottom .right, .left{
+  width: 45%; 
+}
+
+.skill-location .bottom label{
+  display: block;
+}
+
+.skill-location .bottom input[type=checkbox]{
+  display: none;
+}
+
+.skill-location .bottom input[type=checkbox] + span.checkbox{
+  display: inline-block;
+  margin-right: 10px;
+  border: 2px solid rgb(161, 161, 161);
+  width: 15px;
+  height: 15px;
+}
+
+.skill-location .bottom input[type=checkbox]:checked + span.checkbox {
+ background: #01B5F4;
+}
+
+/* PORTFOLIO */
+.portfolio input{
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.portfolio textarea{
+  background: transparent;
+  width: 100%;
+  color: rgb(181, 184, 187);
+}
+
+.portfolio button{
+  margin: 30px 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  background: #01B5F4;
+  border: none;
+  text-align: center;
+  padding: 15px 50px;
+}
