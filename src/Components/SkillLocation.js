@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SkillLocation = () => (
     <div className="skill-location">
@@ -35,6 +36,9 @@ const SkillLocation = () => (
                 <label htmlFor="o07"><input type="checkbox" name="location" id="o07" /><span className="checkbox"></span>Boeblingen, Germany</label>
                 <label htmlFor="o08"><input type="checkbox" name="location" id="o08" /><span className="checkbox"></span>Somewhere else</label>
             </div>
+        </div>
+        <div>
+            <Link to='/portfolio'><button>Next</button></Link>
         </div>
     </div>
 )
