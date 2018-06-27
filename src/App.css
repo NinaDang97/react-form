@@ -17,10 +17,6 @@ nav {
   justify-content: space-around;
 }
 
-nav li{
-  cursor: pointer;
-}
-
 a{
   color: white;
   text-decoration: none;
@@ -32,6 +28,19 @@ nav li:hover {
   animation-name: menu-item;
   animation-duration: 0.1s;
 }
+
+nav button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+}
+
+nav button:disabled {
+  color: grey;
+}
+
 
 @keyframes menu-item {
   0% {
