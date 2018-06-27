@@ -5,6 +5,7 @@ const Input = (props) => (
         type={props.type} 
         className={props.className} 
         name={props.name} 
+        value={props.value}
         onChange={props.onChange} 
         onBlur={props.onBlur} 
         placeholder={props.placeholder}

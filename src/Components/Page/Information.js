@@ -12,7 +12,10 @@ class Information extends Component {
         phone: '',
         address: '',
         city: '',
+        state: '',
         country: '',
+        zip: '',
+        know_about_us: '',
         isTouched: {
             fullName: false,
             email: false,
@@ -24,6 +27,13 @@ class Information extends Component {
         }
     }
     
+    componentDidMount() {
+        this.setState(prevState => ({
+            ...prevState,
+            ...this.props.info
+        }))
+    }
+
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
@@ -41,7 +51,6 @@ class Information extends Component {
     }
 
     validateInfo = (fullName, email, reEmail, phone, address, city, country) => {
-        console.log(address);
         const regexFullName = /^[A-Za-z]+\s[A-Za-z]+$/;
         const regexEmail = /^\w+(\.\w+)?@\w{2,5}\.[a-z-]{2,}(\.\w{2,})?$/;
         const regexPhone = /^0\d{8,13}/;
@@ -75,9 +84,9 @@ class Information extends Component {
         return errorInfo;
     }
 
-    render() {                
+    render() {               
         const {
-            fullName, email, reEmail, phone, address, city, country,
+            fullName, email, reEmail, phone, address, city, state, country, zip, know_about_us,
             isTouched,
         } = this.state; 
         const errorInfo = this.validateInfo(fullName, email, reEmail, phone, address, city, country);
@@ -90,6 +99,7 @@ class Information extends Component {
                             type="text" 
                             className={(isTouched.fullName && errorInfo.fullName) ? 'invalid' : ''} 
                             name='fullName' 
+                            value={fullName}
                             onChange={this.handleChange} 
                             onBlur={this.handleBlur}
                             placeholder="Full name*" />
@@ -98,7 +108,8 @@ class Information extends Component {
                         <Input 
                             type="email" 
                             className={(isTouched.email && errorInfo.email) ? 'invalid' : ''} 
-                            name='email' 
+                            name='email'
+                            value={email} 
                             onChange={this.handleChange} 
                             onBlur={this.handleBlur}
                             placeholder="Email*" />
@@ -108,6 +119,7 @@ class Information extends Component {
                             type="tel" 
                             className={(isTouched.phone && errorInfo.phone) ? 'invalid' : ''} 
                             name='phone' 
+                            value={phone}
                             onChange={this.handleChange} 
                             onBlur={this.handleBlur}
                             placeholder="Phone#*" />
@@ -118,6 +130,7 @@ class Information extends Component {
                             type="email" 
                             className={(isTouched.reEmail && errorInfo.reEmail) ? 'invalid' : ''} 
                             name='reEmail' 
+                            value={reEmail}
                             onChange={this.handleChange} 
                             onBlur={this.handleBlur}
                             placeholder="Re-enter email*" />
@@ -129,6 +142,7 @@ class Information extends Component {
                         <Textarea
                             className={(isTouched.address && errorInfo.address) ? 'invalid input' : 'input'}
                             name='address'
+                            value={address}
                             onChange={this.handleChange}
                             onBlur={this.handleBlur}
                             placeholder="Address*"
@@ -140,6 +154,7 @@ class Information extends Component {
                             type="text" 
                             className={(isTouched.city && errorInfo.city) ? 'invalid' : ''} 
                             name='city' 
+                            value={city}
                             onChange={this.handleChange} 
                             onBlur={this.handleBlur}
                             placeholder="City*" />
@@ -147,12 +162,16 @@ class Information extends Component {
 
                         <Input 
                             type="text" 
+                            name='state'
+                            value={state}
+                            onChange={this.handleChange} 
                             placeholder="State" />
 
                         <Input 
                             type="text" 
                             className={(isTouched.country && errorInfo.country) ? 'invalid' : ''} 
                             name='country' 
+                            value={country}
                             onChange={this.handleChange} 
                             onBlur={this.handleBlur}
                             placeholder="Country/Region*" />
@@ -160,19 +179,27 @@ class Information extends Component {
 
                         <Input 
                             type="text" 
+                            name='zip'
+                            value={zip}
+                            onChange={this.handleChange}
                             placeholder="Zip/Postal code" />
                     </div>
                 </div>
                 <div className="info info-col-3">
                     <Input 
                         type="text" 
+                        name='know_about_us'
+                        value={know_about_us}
+                        onChange={this.handleChange}
                         placeholder="How did you hear about us?" />
                 </div>
                 <div>
-                    <Link to='/skill-location'>
-                        <button type='submit' 
-                            disabled={this.props.handleDisabledInfo(errorInfo)} 
-                            onClick={() => this.props.onNext(false)}>
+                    <Link to='/skill'>
+                        <button
+                            name='info' 
+                            type='submit' 
+                            disabled={this.props.handleDisabled(errorInfo)} 
+                            onClick={(event) => {this.props.onNext(false, this.state, event)}}>
                         Next
                         </button>
                     </Link>
