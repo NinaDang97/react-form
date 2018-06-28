@@ -95,7 +95,7 @@ class Skill extends Component {
                     <Link to='/portfolio'>
                         <button
                             name='skill'
-                            disabled={this.props.handleDisabled(errors)}onClick={(e) => this.props.onNext(false, this.state, e)}>
+                            disabled={this.props.handleDisabled(errors)} onClick={(e) => this.props.onNext(this.state, e)}>
                         Next
                         </button>
                     </Link>

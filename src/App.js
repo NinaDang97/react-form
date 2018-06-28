@@ -20,6 +20,8 @@ class App extends Component {
       errorInfo: true,
       skill: {},
       errorSkill: true,
+      portfolio: {},
+      errorPortfolio: true
     }
   }
 
@@ -27,21 +29,28 @@ class App extends Component {
     return Object.values(errors).some(errMsg => errMsg);   
   } 
 
-  onNext = (errorType, values, event) => {
+  onNext = (values, event) => {
     const field = event.target.name;
-    field === 'info'
-    ? this.setState({
+    if(field === 'info')
+    { this.setState({
         errorInfo: false,
         [field]: {...values}
       })
-    : this.setState({
+     } else if (field === 'skill') {
+        this.setState({
         errorSkill: false,
         [field]: {...values}
-    })
+      })
+    } else {
+      this.setState({
+        errorPortfolio: false,
+        [field]: {...values}
+      })
+    }
   }
 
   render() {
-    const {info, errorInfo, skill, errorSkill} = this.state;
+    const {info, errorInfo, skill, errorSkill, portfolio} = this.state;
     return (
       <BrowserRouter>
         <div className="App">
@@ -58,7 +67,7 @@ class App extends Component {
               <Route exact path='/' component={Home} />
               <Route path='/info' render={() => <Information handleDisabled={this.handleDisabled} onNext={this.onNext} info={info} />} />
               <Route path='/skill' render={() => <Skill handleDisabled={this.handleDisabled} onNext={this.onNext} skill={skill} />} />
-              <Route path='/portfolio' component={Portfolio} />
+              <Route path='/portfolio' render={() => <Portfolio handleDisabled={this.handleDisabled} submit={this.onNext} portfolio={portfolio}  />} />
             </Switch>
           </form>
           <footer>

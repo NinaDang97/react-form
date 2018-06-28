@@ -199,7 +199,7 @@ class Information extends Component {
                             name='info' 
                             type='submit' 
                             disabled={this.props.handleDisabled(errorInfo)} 
-                            onClick={(event) => {this.props.onNext(false, this.state, event)}}>
+                            onClick={(event) => {this.props.onNext(this.state, event)}}>
                         Next
                         </button>
                     </Link>
